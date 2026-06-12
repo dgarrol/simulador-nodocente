@@ -333,11 +333,11 @@ export default function App() {
                 <h3 className="text-sm font-semibold text-slate-800">Otros Adicionales (Haberes)</h3>
                 <label className="flex items-center gap-2 text-sm text-slate-700">
                   <input type="checkbox" name="cobraAsistencial" checked={form.cobraAsistencial} onChange={handleInputChange} className="rounded" />
-                  Adicional Asistencial (12% Cat. Asignada)
+                  Adicional Asistencial
                 </label>
                 <label className="flex items-center gap-2 text-sm text-slate-700">
                   <input type="checkbox" name="cobraFalloCaja" checked={form.cobraFalloCaja} onChange={handleInputChange} className="rounded" />
-                  Fallo de Caja (25% Básico Cat. 7)
+                  Fallo de Caja
                 </label>
               </div>
 
