@@ -143,13 +143,13 @@ export default function App() {
     // Adicional Asistencial (12% de la categoría asignada)
     if (form.cobraAsistencial) {
       const asistencial = gridData.basic * 0.12;
-      haberes.push({ label: 'Adicional Asistencial (12% Cat. Asignada)', amount: asistencial, remunerativo: true });
+      haberes.push({ label: 'Adicional Asistencial', amount: asistencial, remunerativo: true });
     }
 
     // Fallo de Caja (25% del básico de categoría 7 del período actual)
     if (form.cobraFalloCaja) {
       const falloCaja = SALARY_GRID[7].basic * 0.25;
-      haberes.push({ label: 'Fallo de Caja (25% Básico Cat. 7)', amount: falloCaja, remunerativo: true });
+      haberes.push({ label: 'Fallo de Caja', amount: falloCaja, remunerativo: true });
     }
 
     // Vale Alimentario (Remunerativo)
@@ -161,26 +161,26 @@ export default function App() {
 
     // --- DESCUENTOS ---
     const jubilacion = baseImponible * 0.11;
-    descuentos.push({ label: 'Jubilación (11%)', amount: jubilacion });
+    descuentos.push({ label: 'Jubilación', amount: jubilacion });
 
     const ley19032 = baseImponible * 0.03;
-    descuentos.push({ label: 'Ley 19032 (3%)', amount: ley19032 });
+    descuentos.push({ label: 'Ley 19032', amount: ley19032 });
 
     const damsu = baseImponible * 0.06;
-    descuentos.push({ label: 'Obra Social DAMSU (6%)', amount: damsu });
+    descuentos.push({ label: 'Obra Social DAMSU', amount: damsu });
 
     if (form.aportaATUNCU) {
-      descuentos.push({ label: 'Sindicato ATUNCU (2%)', amount: baseImponible * 0.02 });
-      descuentos.push({ label: 'Aporte FATUN (0.75%)', amount: baseImponible * 0.0075 });
+      descuentos.push({ label: 'Sindicato ATUNCU', amount: baseImponible * 0.02 });
+      descuentos.push({ label: 'Aporte FATUN', amount: baseImponible * 0.0075 });
     }
 
     if (form.aportaICUNC) {
-      descuentos.push({ label: 'Instituto ICUNC (2%)', amount: baseImponible * 0.02 });
+      descuentos.push({ label: 'Instituto ICUNC', amount: baseImponible * 0.02 });
     }
 
     if (form.socioDeportes) {
       const aportesDeportes = SALARY_GRID[6].basic * 0.01; 
-      descuentos.push({ label: 'Socio Deportes Cod. 61 (1% Básico Cat. 6)', amount: aportesDeportes });
+      descuentos.push({ label: 'Socio Deportes Cod. 61', amount: aportesDeportes });
     }
 
     descuentos.push({ label: 'Seguro Vida Obligatorio', amount: SEGURO_OBLIGATORIO });
