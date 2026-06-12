@@ -345,7 +345,7 @@ export default function App() {
                 <h3 className="text-sm font-semibold text-slate-800">Aportes y Retenciones</h3>
                 <label className="flex items-center gap-2 text-sm text-slate-700">
                   <input type="checkbox" name="aportaATUNCU" checked={form.aportaATUNCU} onChange={handleInputChange} className="rounded" />
-                  Afiliado Sindicato ATUNCU / FATUN
+                  Afiliada/o Sindicato ATUNCU / FATUN
                 </label>
                 <label className="flex items-center gap-2 text-sm text-slate-700">
                   <input type="checkbox" name="aportaICUNC" checked={form.aportaICUNC} onChange={handleInputChange} className="rounded" />
@@ -353,7 +353,7 @@ export default function App() {
                 </label>
                 <label className="flex items-center gap-2 text-sm text-slate-700">
                   <input type="checkbox" name="socioDeportes" checked={form.socioDeportes} onChange={handleInputChange} className="rounded" />
-                  Socio Deportes (Cod. 61)
+                  Socia/o Deportes (Cod. 61)
                 </label>
               </div>
 
