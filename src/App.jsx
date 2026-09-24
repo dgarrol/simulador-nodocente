@@ -83,7 +83,7 @@ const formatCurrency = (amount) => {
 
 export default function App() {
   const [form, setForm] = useState({
-    periodo: 'julio2026',
+    periodo: Object.keys(PERIODOS).at(-1), // Por defecto, el último período cargado
     catRevista: 7,
     hasMayorResp: false,
     catMayorResp: 6,
