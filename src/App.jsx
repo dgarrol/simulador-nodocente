@@ -92,6 +92,8 @@ export default function App() {
     permanencia: 0,
     cobraAsistencial: false,
     cobraFalloCaja: false,
+    cobraZona: false,
+    zonaPorcentaje: 20,
     aportaATUNCU: false,
     aportaICUNC: false,
     socioDeportes: false
@@ -185,6 +187,14 @@ export default function App() {
     if (form.cobraAsistencial) {
       const asistencial = gridData.basic * 0.12;
       haberes.push({ label: 'Adicional Asistencial', amount: asistencial, remunerativo: true });
+    }
+
+    // Adicional Zona (20% o 40% del básico de la categoría efectiva:
+    // si subroga Mayor Responsabilidad, se calcula sobre la categoría de MR)
+    if (form.cobraZona) {
+      const zonaPct = Number(form.zonaPorcentaje);
+      const zona = gridData.basic * zonaPct / 100;
+      haberes.push({ label: `Adicional Zona (${zonaPct}%)`, amount: zona, remunerativo: true });
     }
 
     // Fallo de Caja (25% del básico de categoría 7 del período actual)
@@ -380,6 +390,26 @@ export default function App() {
                   <input type="checkbox" name="cobraFalloCaja" checked={form.cobraFalloCaja} onChange={handleInputChange} className="rounded" />
                   Fallo de Caja
                 </label>
+                <label className="flex items-center gap-2 text-sm text-slate-700">
+                  <input type="checkbox" name="cobraZona" checked={form.cobraZona} onChange={handleInputChange} className="rounded" />
+                  Adicional Zona
+                </label>
+                {form.cobraZona && (
+                  <div className="ml-6 flex items-center gap-6 text-sm text-slate-700">
+                    {[20, 40].map(pct => (
+                      <label key={pct} className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="zonaPorcentaje"
+                          value={pct}
+                          checked={Number(form.zonaPorcentaje) === pct}
+                          onChange={handleInputChange}
+                        />
+                        {pct}%
+                      </label>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-3 pt-2 border-t border-slate-200">
