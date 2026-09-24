@@ -52,6 +52,21 @@ const PERIODOS = {
       6: { basic: 1005500.58, sec: 146637.05, tec: 201100.12, uni: 251375.15, ter: 100550.06, ant: 20110.01, grado: 231265.13, cap: 80440.05, p8: 140781.46, p6: 90502.37, p4: 50279.09, p2: 20111.64, gar: 150000.00, bono: 0 },
       7: { basic: 837926.01, sec: 146637.05, tec: 167585.20, uni: 209481.50, ter: 83792.60, ant: 16758.52, grado: 226240.02, cap: 83792.60, p8: 117302.20, p6: 75408.56, p4: 41893.64, p2: 16757.46, gar: 220000.00, bono: 0 }
     }
+  },
+  // Setiembre 2026: aumento paritario del 3% sobre la grilla de agosto2026
+  // en todos los conceptos, excepto Garantía Salarial (NRNB) que se mantiene fija.
+  // Posgrado (30% del básico) sigue calculándose dinámicamente en calculateSalary.
+  setiembre2026: {
+    nombre: "Setiembre 2026",
+    grid: {
+      1: { basic: 2589190.98, sec: 151036.16, tec: 517838.20, uni: 647297.74, ter: 258919.10, ant: 51783.82, grado: 155351.46, cap: 77675.73, p8: 670600.46, p6: 431100.30, p4: 239500.17, p2: 95800.07, gar: 0.00, bono: 0 },
+      2: { basic: 2157662.64, sec: 151036.16, tec: 431532.53, uni: 539415.66, ter: 215766.26, ant: 43153.25, grado: 151036.39, cap: 86306.51, p8: 302069.84, p6: 194187.75, p4: 107882.08, p2: 43152.83, gar: 0.00, bono: 0 },
+      3: { basic: 1795198.59, sec: 151036.16, tec: 359039.72, uni: 448799.65, ter: 179519.86, ant: 35903.97, grado: 143615.89, cap: 89759.93, p8: 253724.84, p6: 163108.82, p4: 90616.01, p2: 36246.41, gar: 0.00, bono: 0 },
+      4: { basic: 1493124.40, sec: 151036.16, tec: 298624.88, uni: 373281.10, ter: 149312.44, ant: 29862.49, grado: 164243.68, cap: 89587.46, p8: 211451.93, p6: 135933.38, p4: 75518.55, p2: 30207.42, gar: 70000.00, bono: 0 },
+      5: { basic: 1242815.48, sec: 151036.16, tec: 248563.10, uni: 310703.87, ter: 124281.55, ant: 24856.31, grado: 173994.17, cap: 86997.08, p8: 175216.24, p6: 112639.01, p4: 62577.23, p2: 25030.89, gar: 100000.00, bono: 0 },
+      6: { basic: 1035665.61, sec: 151036.16, tec: 207133.12, uni: 258916.40, ter: 103566.56, ant: 20713.31, grado: 238203.09, cap: 82853.25, p8: 145004.91, p6: 93217.44, p4: 51787.47, p2: 20714.99, gar: 150000.00, bono: 0 },
+      7: { basic: 863063.79, sec: 151036.16, tec: 172612.76, uni: 215765.95, ter: 86306.38, ant: 17261.28, grado: 233027.22, cap: 86306.38, p8: 120821.27, p6: 77670.82, p4: 43150.45, p2: 17260.18, gar: 220000.00, bono: 0 }
+    }
   }
 };
 
@@ -68,7 +83,7 @@ const formatCurrency = (amount) => {
 
 export default function App() {
   const [form, setForm] = useState({
-    periodo: 'julio2026',
+    periodo: Object.keys(PERIODOS).at(-1), // Por defecto, el último período cargado
     catRevista: 7,
     hasMayorResp: false,
     catMayorResp: 6,
