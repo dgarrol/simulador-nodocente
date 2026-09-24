@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Salidas de Claude (Cowork)
+Claude outputs/
